@@ -16,6 +16,7 @@ PORT = 6551
 
 server = remote(HOST, PORT)
 
+# JUST FOR DEBUG 
 key = get_random_bytes(32)
 
 # {"username": "aa |                \ | "yoloo           |                 \| ":               |                , |             true | aaaa", "admin":  | false}pppppppppp
@@ -61,6 +62,7 @@ user = json.loads(dec_token)
 print(user)
 
 #------------------------------------------------------------------
+#attack is here
 
 name = b"a"*2 + b" "*15 + b'"' + b"yoloo" + b" "*10 + b" "*15 + b'":' + b" "*(14+15) + b"," + b" "*12 + b"true" + b"aaaa"
 server.sendlineafter(b"> ", name)
