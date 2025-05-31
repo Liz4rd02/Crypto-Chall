@@ -1,0 +1,15 @@
+from Crypto.Util.number import long_to_bytes
+
+n = 770071954467068028952709005868206184906970777429465364126693
+e = 3
+ct = 388435672474892257936058543724812684332943095105091384265939
+
+print(len(long_to_bytes(n))*8) #only 200 bits
+#factorize n, only 200 bits long
+p = 866961515596671343895614356197
+q = 888242373638787482012535770369
+phi = (p-1)*(q-1)
+d = pow(e, -1, phi)
+m = pow(ct, d, n)
+m = long_to_bytes(m)
+print(m)
